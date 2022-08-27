@@ -15,6 +15,8 @@ function App() {
   const [prefCode, setPrefCode] = useState([]);
   const [prefID, setPrefID] = useState(-1);
   const [data,setData] = useState([])
+  const [prefName,setPrefName] = useState([])
+  const text1 = "Population of "
 
   useEffect(() => {
     const getData = async () => {
@@ -33,18 +35,25 @@ function App() {
   }, []);
 
   const renderCheckList = () => {
-    return prefCode?.map((item) => {
-      return (
-        <div key={item.prefCode}>
-          <input value={item.prefCode} type="radio" onChange={handleCheck} name="prefCode" />
-          <span>{item.prefName}</span>
-        </div>
-      );
-    });
+    return (
+    <div className="container">
+      {
+        prefCode?.map((item) => {
+          return (
+            <div key={item.prefCode}>
+            <input value={item.prefCode} type="radio" onChange={handleCheck} name="prefCode" id={item.prefName} />
+            <label htmlFor={item.prefName}>{item.prefName}</label>
+            </div>
+          );
+        })
+      }
+    </div>
+    )
   };
 
   const handleCheck = (event) => {
     if (event.target.checked) {
+      setPrefName(event.target.id)
       setPrefID(event.target.value);
       axios.get(`https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${event.target.value}`
       , {
@@ -79,7 +88,7 @@ function App() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line name={text1.concat(prefName)} dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
               </LineChart>
             </td>
             <td></td>
