@@ -13,7 +13,7 @@ import "./styles.css";
 
 function App() {
   const [prefCode, setPrefCode] = useState([]);
-  const [prefID, setPrefID] = useState(-1);
+  // const [prefID, setPrefID] = useState(-1);
   const [data, setData] = useState([]);
   const [prefName, setPrefName] = useState([]);
   const text1 = "Population of ";
@@ -58,7 +58,7 @@ function App() {
   const handleCheck = (event) => {
     if (event.target.checked) {
       setPrefName(event.target.id);
-      setPrefID(event.target.value);
+      // setPrefID(event.target.value);
       axios
         .get(
           `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${event.target.value}`,
