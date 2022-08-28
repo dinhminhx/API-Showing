@@ -11,23 +11,39 @@
 .container > div > label{
     font-size: 20px;
 }
-
 @media only screen and (max-width: 46.1875em) {
     .title {
-        font-size: large;
+        font-size: medium;
         margin-left: 30%;
+        position: relative;
+        top:300px;
+        right: 1150px;
     }
-    
     .container {
-        columns: 5 auto;
+        columns: 3;
+        column-gap: 100px;
         margin-left: 30%;
+        position: relative;
+        top:300px;
+        right: 1150px;
+        white-space: nowrap;
     }
-    
     .container > div > label{
         font-size: 20px;
     }  
+
     #root > div > header > table > tr > td:nth-child(1) > div{
         max-width: 50%;
         max-height: 50%;
     }  
+    #root > div > header > table > tr > td:nth-child(1) > div > svg{
+        width: 350px;
+        height: 350px;
+        margin-bottom: 5px;
+    }
+    li.recharts-legend-item.legend-item-0{
+        position: relative;
+        right: 300px;
+        bottom: 350px;
+    }
 }

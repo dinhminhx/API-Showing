@@ -81,6 +81,7 @@ function App() {
           <tr>
             <td>
               <LineChart
+                className="Chart"
                 width={1000}
                 height={700}
                 data={data}
@@ -95,7 +96,7 @@ function App() {
                 <XAxis dataKey="year" />
                 <YAxis ticks={[1000000,2000000,3000000,4000000, 5000000, 7000000, 9000000,12000000,15000000]}   />
                 <Tooltip />
-                <Legend />
+                <Legend className="legend"/>
                 <Line
                   name={text1.concat(prefName)}
                   dataKey="value"
