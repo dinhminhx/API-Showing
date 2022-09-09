@@ -1,4 +1,4 @@
-# This is my Jobfair Project Yumemi
+# This is my Jobfair Project
 
 ## Run project
 `npm start`
